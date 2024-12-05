@@ -27,6 +27,7 @@ public:
 
 	//ввод char
 	void ЧеловеК(char &яйца) {
+		SetConsoleCP(1251);
 		cin >> яйца;
 	}
 	//ввод int
@@ -56,7 +57,8 @@ public:
 	}
 	//ввод string
 	void челОВек(string& яйца) {
-		cin >> яйца;
+		SetConsoleCP(1251);
+		getline(cin, яйца);
 	}
 
 	//проверка char
@@ -65,12 +67,21 @@ public:
 			function(a, b, c);
 		}
 	}
-
-	//цикл
-	void ЯЙца(int человек, void(*яйца)(double, double, const std::string&), double a, double b, const std::string& c) {
-		for (int i = 0; i < человек; i++) {
-			яйца(a, b, c);  // вызываем переданную функцию с параметрами
+	//проверка string
+	void яЙцА(string то_что_мы_сравниваем, string то_с_чем_мы_сравниваем, void(*function)(double, double, const std::string&), double a, double b, const std::string& c) {
+		if (то_что_мы_сравниваем == то_с_чем_мы_сравниваем) {
+			function(a, b, c);
 		}
+	}
+	//цикл
+	void ЯЙца(int повторения, void(*яйца)(double, double, const std::string&), double первый_параметр, double второй_параметр, const std::string& третий_параметр) {
+		for (int i = 0; i < повторения; i++) {
+			яйца(первый_параметр, второй_параметр, третий_параметр);
+		}
+	}
+	//задержка
+	void чеЛовек(int ms) {
+		Sleep(ms);
 	}
 
 };
